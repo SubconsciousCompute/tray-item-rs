@@ -15,11 +15,9 @@ license = "MIT"
 ksni = ["dep:ksni"]
 libappindicator = ["dep:libappindicator", "dep:gtk"]
 
-[dependencies]
-
 [target.'cfg(target_os="linux")'.dependencies]
 ksni = { version = "0.1.3", optional = true }
-libappindicator = { version = "0.7", optional = false } # Tray icon
+libappindicator = { version = "0.7", optional = true } # Tray icon
 gtk = { version = "0.15", optional = true }
 
 [target.'cfg(target_os="windows")'.dependencies]

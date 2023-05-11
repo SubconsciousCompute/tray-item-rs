@@ -1,5 +1,5 @@
 use {
-    crate::{TIError, IconSource},
+    crate::{IconSource, TIError},
     gtk::prelude::*,
     libappindicator::{AppIndicator, AppIndicatorStatus},
 };
@@ -11,6 +11,7 @@ pub struct TrayItemLinux {
 
 impl TrayItemLinux {
     pub fn new(title: &str, icon: IconSource) -> Result<Self, TIError> {
+        gtk::init();
         let mut t = Self {
             tray: AppIndicator::new(title, icon.as_str()),
             menu: gtk::Menu::new(),
